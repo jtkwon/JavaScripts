@@ -1,0 +1,42 @@
+<!-- 
+    File: fun-example-001.html 
+    Description: This example will look at various Objects of DOM (Document Object Model)
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Author: Taera (Jeff) Kwon -->
+        <title>Fun Example 001</title>
+        <!-- Stylesheets
+        // For education purpose, I will use internal style sheet.
+        This is a bad practice, make sure you use external css -->        
+    </head>
+    <body>
+    <!-- SCRIPTS GO HERE 
+    // You generally want to run your script at the end in order to 
+    reduce the time it takes the page to load.
+    -->
+    </body>
+    <script>
+        /*  Alert method belongs to Window Object (Your curent browser window).
+            Below code is an example of how you trigger alert prompt in your browser.
+            If you have multiple browsers open at the same time, you need to know the name
+            of window object for that session.  Technically, you can leave window and just use alert(msg)
+            because the window object is top of the hierarchy for current session.
+        */
+        window.alert("This method will display alert"); // IN JavaScript, semi-colon is optional; however, it is good practice to use.
+        alert("Alert message without window object and semi-colon")
+
+        /*  Let's write directly to document.  I will use write method from document object to write
+            some message to document that you are seeing. You can also include HTML tags to write method.
+            Most likely, you will not use this method, but it helps you to understand the DOM model.
+        */
+        window.document.write("I am writing to document object using write method");
+        window.document.write('<br><br><span style="color:red">I changed this font color using inline css</span>');
+
+        /*  Navigator object contains information about your current browser.  I will combine it with write method to demonstrate 
+            This example should display your browser's name and version number*/
+        window.document.write("<br><br>Application name: " + window.navigator.appName + "<br>Version: " + window.navigator.appVersion); 
+        /* Here, + sign is used as concatenation.  Double quote is not used between 'window.navigator.appName' because it will print literal string.  */
+    </script>
+</html>
