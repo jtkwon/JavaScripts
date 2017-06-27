@@ -1,0 +1,36 @@
+<!-- 
+    File: fun-example-003.html 
+    Description: In this example, I will demonstrate some event handling.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Author: Taera (Jeff) Kwon -->
+        <title>Fun Example 003</title>    
+    </head>
+    <body>
+        <!--    JavaScript is a very powerful language that allows you manipulate browser events.  
+                JavaScript will allow you to interact with events (therefore, called 'event handlers').
+                JavaScript has many event handlers (Example - onclick, onmouseover, etc) that will make your website more interactive.
+                I will cover few examples of event handling.
+            -->
+        <p>Hello, welcome to fun-example-003.  In this example I will demonstrate how mouse event works.<br></p>
+        <p><b>Example 1: Alert</b></p>
+        <!-- In Example 1, I am demonstrate onclick event handler (Built in to browser) -->
+        <input type="button" onclick="alert('You clicked the alert button')" value="Alert Button"><br> <!-- By clicking this button, JavaScript will 'fire' the event -->
+        <p><b>Example 2: Using custom function</b></p> <!-- This is more advanced.  You will learn what function is in later exercises -->
+        <p id="change">Prior to pressing</p><input type="button" id="changeButton" value="Press me" onclick="change()"><br><br>
+        <p><b>Example 3: Mouseover & Mouseout</b></p>
+        <p onmouseover="window.document.getElementById('example3').style.color = 'red'" onmouseout="window.document.getElementById('example3').style.color = 'black'">
+        <span id="example3">Put mouse over me</span></p>
+        <p onmouseover="this.style.color = 'blue'" onmouseout="this.style.color = 'black'">Put mouse over me</p> <!-- You can use 'this' to refer to the element itself
+        <!-- SCRIPTS -->
+        <script>
+            function change() {
+                let textElem = window.document.getElementById("change");
+                textElem.style.fontSize = "xx-large";
+                textElem.innerHTML = "After pressing";
+            }
+        </script>
+    </body>
+</html>
