@@ -1,0 +1,57 @@
+<!-- 
+    File: fun-example-004.html 
+    Description: Sine we have covered some fundamentals, this example will cover functions.
+    If you new to programming, function may sound complicated.  Think of function as a tool
+    that you can use.  For an example - In a TV object, there will be a function called "Display", or "Change Channel", etc.
+    -->
+    <!-- Q1: Do you know the difference between Function and Method ? -->
+    <!-- Q2: Do you know how scope works ? -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Author: Taera (Jeff) Kwon -->
+        <title>Fun Example 004 - Functions</title>    
+    </head>
+    <body>
+        <!-- This button will always display same message by calling displayAlert function -->
+        <input type="button" value="Example 1 - Basic Alert" onclick="DisplayAlert('Example 1 - Displaying Static Message')">        
+        <br><br>
+        <!-- This button will display dynamic message, depending on what you type in the input box -->
+        <input type="text" id="inputBox1">&nbsp;<input type="button" value="Example 2 - Dynamic Alert" onclick="DisplayAlert(window.document.getElementById('inputBox1').value)">
+        <br><br>
+        <p>I voted in the last election ? True <input type="radio" name="voted" select="true" value=true>&nbsp;False <input type="radio" name="voted" value="false"></p>
+        <input type="button" value="Press Me" onclick="DisplayAlert(Voted(document.getElementsByName('voted')).toUpperCase())">
+        <!-- SCRIPTS -->
+        <script>
+            /*  Example 1 - Creating a basic alert function
+                Let's create a basic alert function that accepts msg as parameter (or argument)
+            */
+            // To write a function, use the keyword 'function' and write statements inside {} (braces)
+            function DisplayAlert(msg) { 
+                // As I mentioned, JavaScript is case sensitive, if you write ("Function"), it will not work
+                if (msg == "") {
+                    msg = "You didn't enter anything";
+                } // If there is msg argument cotains empty string, as default, display alert with 'You didn't enter anything' message
+                window.alert(msg);
+            } // End of displayAlert function
+
+            /*  Example 2 - Creating a function that returns value 
+                This function will return true or false.  Radio object, if you are familiar with HTML, can have multiple values.  Therefore, you need to loop through
+                all available options and then check for its condition (checked).  The function is designed so that if checked, then return value of element inside list array */
+            function Voted(answer) {
+                for (let i = 0; i < answer.length; i++) {
+                    if (answer[i].checked) {
+                        return answer[i].value;
+                    }
+                }       
+            }
+        </script>
+        <!-- HINT: Good practice is to name your function with first letter Capital --> 
+    </body>
+    <!-- Ans 1:     In JavaSCript, we use method if the function belongs to an object (instance of class - You will learn later) 
+                    Example - alert and write are methods of object window -->
+    <!-- Ans 2:     When you declare a variable inside a function, its scope is within the function, which means you cannot access that variable directly from outside of function.
+                    If you want your variable to be accessed by multiple functions, it's better to declare the variable outside of all functions (Global declaration).
+                    From my personal experience, unless your code is very simple and structured, it is not recommended to use global variable, especially if that variable
+                    can be modified by multiple functions.  In later exercises, I will create getter and setter functions that set and get variables. 
+</html>
