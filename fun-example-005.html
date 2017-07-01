@@ -1,0 +1,52 @@
+<!-- 
+    File: fun-example-005.html 
+    Description: In this example, we will look at different ways you can make JavaScript more dynamic.
+                The beauty of JavaScript is its ability to interact with DOM Objects in browser, trigger
+                events, and get feedback.
+    -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Author: Taera (Jeff) Kwon -->
+        <title>Fun Example 006 - Functions</title>
+    </head>
+    <body>
+        <!-- TIP: "Modal" means script execution pause to interact with user. 
+            Just like when you are creating a Modal Dialog in VBA (Excel). -->
+        <p>Number of times you looped: <span id="num"></span></p>
+        <input type="button" value="Simple Loop" onclick="document.getElementById('num').innerText = loopMe()"> <!-- setting page element ('num') as loopMe() return String -->
+        <br><br>
+        <p>What is your favourite colour? <input type="button" value="Answer" onclick="showColour()"><span id="colour"></p>
+        <!-- SCRIPTS -->
+        <script>            
+            function loopMe() {
+                let counter = 0;
+                while (window.confirm("Continue ?") == true) // confirm method will return false if cancel, true if ok
+                {
+                    counter += 1;
+                } // while loop will loop as long as condition is met.  This loop will continue as long as you press 'ok'
+                return counter; // answer function will return incremented value.  0 if never looped (as it is default)
+            } // END OF loopMe
+
+            function showColour() {
+                let answer = window.prompt("What is your favourite colour ?", "white").toLowerCase();
+                let colour = "";
+
+                if (answer != "") { // Unlike Java, if null, then it because "" (empty string), 0, or false
+                    if (answer.includes("red")) {
+                        colour = "red";
+                    } else if (answer.includes("blue")) {
+                        colour = "blue";
+                    } else if (answer.includes("green")) {
+                        colour = "green";                        
+                    } else {
+                        colour = "white";
+                    }
+                }
+                document.body.style.backgroundColor = colour;
+            } // This function prompts user for input and sets background colour if one of 3.
+            /*  if condition should always have != null first because it will prevent fatal error due to 
+                your code trying to interact with null value */
+        </script>
+    </body>
+</html>
