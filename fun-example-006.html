@@ -1,0 +1,55 @@
+<!-- 
+    File: fun-example-006.html 
+    Description: To effectively target and modify web elements, you need to understand some of the basic properties of each elements.
+    In this example, I will demonstrate few functions that interact with commonly used web element properties.
+    -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Author: Taera (Jeff) Kwon -->
+        <title>Fun Example 006</title>
+    </head>
+    <body>
+        <!-- Regular paragraph element -->
+        <p id="example1" title="Example 1 Title Can Be Different">Example 1: Regular Text</p>
+        <input type="button" value="Display properties" onclick="displayProperties()">
+        <p id="example1Properties"></p>
+        <!-- Example 2 - History -->
+        <div id="example2">
+            <input type="button" value="View History Data" onclick="displayHistory()">
+            <p id="example2P"></p>
+            <input type="button" value="Go to Google.ca" onclick="goToGoogle()">
+        </div> <!--/ #example2 -->
+        <!-- SCRIPTS -->
+        <script>
+            /* This function will display web element properties */
+            function displayProperties() {
+                /* Setting obj as web element object (paragraph) */
+                let objDisplay = window.document.getElementById("example1Properties");
+                let objExample = document.getElementById("example1");
+                objDisplay.innerHTML = "innerText Property = \"" + objExample.innerText + "\"" + 
+                "<br>outerText Property = \"" + objExample.outerText + "\"" + 
+                "<br>innerHTML Property (Allow you to modify HTML content inside an element) = \"" + objExample.innerHTML + "\"" + 
+                "<br>outerHTML Property (Display HTML content including itself and inside) = \"" + objExample.outerHTML + "\"" +
+                "<br>id Property = \"" + objExample.id + "\"" + 
+                "<br>tagName Property = \"" + objExample.tagName + "\"" + 
+                "<br>title Property = \"" + objExample.title + "\"";
+            }
+            /*  It is recommended to check properties of each web element to understand what kind of information you can 
+                gain and modify.  For an example, when you are creating GUI Automation test scripts, it is essential to understand
+                properties of web elements.  Web elements can be combined to define unique element to target, enter data, delete, hide, and etc*/
+            /* This function will display history of your browser */
+            function displayHistory() {
+                let objHistory = window.history;
+                document.getElementById("example2P").innerText = "You have visited: " + objHistory.length + " page(s) from this browser session";
+            }
+
+            function goToGoogle() {
+                window.location.href = "http://www.google.ca";
+                // href property of location can be either used to display current url or to browse to the url set.
+                // This method is different from location.replace(URL), which will remove sending page from history; therefore, will not increment (in our example).
+            }
+        </script>
+        <!-- SUGGESTION: Try to play around with different objects (document, navigator, history, and screen)-->
+    </body>
+</html>
